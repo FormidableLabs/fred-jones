@@ -1,15 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Plato - JavaScript Introspection</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
     <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script>
       var __options = <%= JSON.stringify(options) %>
@@ -17,6 +13,7 @@
 
     <link href="assets/css/vendor/bootstrap.css" rel="stylesheet">
     <link href="assets/css/vendor/font-awesome.css" rel="stylesheet">
+
     <link href="assets/css/vendor/morris.css" rel="stylesheet">
     <link href="assets/css/plato.css" rel="stylesheet">
     <link href="assets/css/plato-display.css" rel="stylesheet">
@@ -24,7 +21,6 @@
 
   <body>
     <div class="container">
-      <h1><%= options.title || 'JavaScript Source Analysis' %></h1>
       <div class="row">
         <div class="col-md-6">
           <div class="reportBlock lineCount">
@@ -98,6 +94,7 @@
     <script type="text/javascript" src="assets/scripts/vendor/jquery.fittext.js"></script>
     <script type="text/javascript" src="assets/scripts/vendor/bootstrap-tooltip.js"></script>
     <script type="text/javascript" src="assets/scripts/vendor/bootstrap-popover.js"></script>
+
     <script type="text/javascript" src="report.js"></script>
     <script type="text/javascript" src="report.history.js"></script>
     <script type="text/javascript" src="assets/scripts/plato-display.js"></script>
