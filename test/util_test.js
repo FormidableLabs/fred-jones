@@ -26,7 +26,7 @@ var path = require('path');
     test.ifError(value)
 */
 
-exports['util'] = {
+exports.util = {
   setUp: function(done) {
     // setup here
     done();
@@ -89,7 +89,7 @@ exports['util'] = {
     test.expect(1);
 
     var source = fs.readFileSync('test/fixtures/.jshintrc').toString();
-    test.doesNotThrow(function(){JSON.parse(util.stripComments(source));}, "Comments should be stripped and JSON parsable");
+    test.doesNotThrow(function(){JSON.parse(util.stripComments(source));}, 'Comments should be stripped and JSON parsable');
 
     test.done();
   },

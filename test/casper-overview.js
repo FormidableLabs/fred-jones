@@ -3,8 +3,8 @@
 'use strict';
 
 
-casper.on("page.error", function(msg) {
-  this.echo("Uncaught Page Error: " + msg, "ERROR");
+casper.on('page.error', function(msg) {
+  this.echo('Uncaught Page Error: ' + msg, 'ERROR');
   casper.exit(1);
 });
 

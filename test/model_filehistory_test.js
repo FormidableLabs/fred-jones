@@ -22,7 +22,7 @@ var FileHistory = require('../lib/models/FileHistory');
     test.ifError(value)
 */
 
-exports['FileHistory'] = {
+exports.FileHistory = {
   setUp: function(done) {
     // setup here
     done();

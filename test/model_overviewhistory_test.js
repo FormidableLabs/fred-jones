@@ -22,7 +22,7 @@ var OverviewHistory = require('../lib/models/OverviewHistory');
     test.ifError(value)
 */
 
-exports['history'] = {
+exports.history = {
   setUp: function(done) {
     // setup here
     done();

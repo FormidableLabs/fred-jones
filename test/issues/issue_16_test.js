@@ -17,20 +17,20 @@
 var fs = require('fs-extra'),
     linter = require('../../lib/reporters/jshint');
 
-exports['issue_16'] = {
+exports.issue16 = {
   setUp: function(done) {
     done();
   },
 
   'Respect global comment': function(test) {
 
-    var file = "test/fixtures/issue_16.js",
+    var file = 'test/fixtures/issue_16.js',
         source = fs.readFileSync(file).toString().trim(),
         config = {},
         globals = [],
         report = linter.process(source, config, globals);
 
-    test.equal(report.messages.length, 0, "Report returned with messages");
+    test.equal(report.messages.length, 0, 'Report returned with messages');
     test.done();
   }
 };

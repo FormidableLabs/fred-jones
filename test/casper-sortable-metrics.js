@@ -11,13 +11,13 @@ var casper = require('casper').create({
     logLevel: 'info'
 });
 
-casper.on("page.error", function(msg) {
-    this.echo("Uncaught Page Error: " + msg, "ERROR");
+casper.on('page.error', function(msg) {
+    this.echo('Uncaught Page Error: ' + msg, 'ERROR');
     casper.exit(1);
 });
 
-casper.on("error", function(msg) {
-    this.log("Uncaught Error: " + msg, 'error');
+casper.on('error', function(msg) {
+    this.log('Uncaught Error: ' + msg, 'error');
 });
 
 
@@ -31,17 +31,17 @@ casper.test.begin('Metrics are sorted by name', 4, function suite() {
 
             casper.test.assertEvalEquals(function() {
                 return document.querySelectorAll('.js-file-chart label')[0].innerText;
-            }, "complexity", '"complexity" is first entry in "metrics" list');
+            }, 'complexity', '"complexity" is first entry in "metrics" list');
 
             casper.test.assertEvalEquals(function() {
                 return document.querySelectorAll('.js-file-chart label')[1].innerText;
-            }, "sloc", '"sloc" is second entry in "metrics" list');
+            }, 'sloc', '"sloc" is second entry in "metrics" list');
 
         });
     });
 
 
-    // click button to sort by "sloc"
+    // click button to sort by 'sloc'
     casper.then(function() {
         casper.click('#button-sloc');
     });
@@ -53,11 +53,11 @@ casper.test.begin('Metrics are sorted by name', 4, function suite() {
 
             casper.test.assertEvalEquals(function() {
                 return document.querySelectorAll('.js-file-chart label')[0].innerText;
-            }, "sloc", '"sloc" is first entry in "metrics" list');
+            }, 'sloc', '"sloc" is first entry in "metrics" list');
 
             casper.test.assertEvalEquals(function() {
                 return document.querySelectorAll('.js-file-chart label')[1].innerText;
-            }, "complexity", '"complexity" is second entry in "metrics" list');
+            }, 'complexity', '"complexity" is second entry in "metrics" list');
 
             casper.test.done();
         });
