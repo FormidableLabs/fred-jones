@@ -8,10 +8,10 @@ var handleErrors = require('../util/handle-errors');
 var lintableSource = [
   'Gruntfile.js',
   'lib/**/*.js',
-  '!lib/assets/**/*.js',
+  '!lib/client/assets/**/*.js',
   'test/**/*.js',
   '!test/fixtures/**/*.js',
-  'lib/assets/scripts/*.js'
+  'lib/client/assets/scripts/*.js'
 ];
 
 gulp.task('jshint', function() {

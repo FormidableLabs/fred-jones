@@ -10,11 +10,11 @@ gulp.task('copy-static', function() {
     'node_modules/jquery/dist/jquery.min.js',
     'node_modules/raphael/raphael-min.js'
   ])
-    .pipe(gulp.dest('lib/assets/scripts/vendor'))
+    .pipe(gulp.dest('lib/client/assets/scripts/vendor'))
     .on('error', handleErrors);
 
   // Copy Vendor CSS
   gulp.src(['node_modules/bootstrap/dist/css/bootstrap.min.css'])
-    .pipe(gulp.dest('lib/assets/css/vendor'))
+    .pipe(gulp.dest('lib/client/assets/css/vendor'))
     .on('error', handleErrors);
 });
