@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+  
+  <testsuite name="model_overviewhistory_test.js"
+             errors="0"
+             failures="0"
+             tests="3">
+    
+      
+      <testcase name="history - test base object">
+        
+      </testcase>
+    
+      
+      <testcase name="history - test new historical report generation for overview">
+        
+      </testcase>
+    
+      
+      <testcase name="history - test history generation from existing history">
+        
+      </testcase>
+    
+  </testsuite>
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+  
+  <testsuite name="plato_test.js"
+             errors="0"
+             failures="0"
+             tests="7">
+    
+      
+      <testcase name="plato - test empty file">
+        
+      </testcase>
+    
+      
+      <testcase name="plato - test file glob">
+        
+      </testcase>
+    
+      
+      <testcase name="plato - test report structure">
+        
+      </testcase>
+    
+      
+      <testcase name="plato - test overview report structure">
+        
+      </testcase>
+    
+      
+      <testcase name="plato - test file with shebang">
+        
+      </testcase>
+    
+      
+      <testcase name="plato - test noempty line option">
+        
+      </testcase>
+    
+      
+      <testcase name="plato - should run jshint with default config">
+        
+      </testcase>
+    
+  </testsuite>
+

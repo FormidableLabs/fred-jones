@@ -30,11 +30,13 @@
     "test": "grunt test"
   },
   "devDependencies": {
-    "grunt": "^0.4.1",
-    "grunt-casper": "^0.4.0",
-    "grunt-contrib-jshint": "^0.11.1",
-    "grunt-contrib-nodeunit": "^0.4.1",
-    "grunt-contrib-watch": "^0.6.1"
+    "gulp": "^3.8.11",
+    "gulp-jshint": "^1.9.4",
+    "gulp-nodeunit": "0.0.5",
+    "gulp-notify": "^2.2.0",
+    "gulp-shell": "^0.4.0",
+    "jshint-stylish": "^1.0.1",
+    "require-dir": "^0.3.0"
   },
   "keywords": [
     "halstead",
