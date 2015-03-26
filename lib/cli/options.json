@@ -27,11 +27,6 @@
     "type": "String",
     "required": true
   },
-  "r": {
-    "long": "recurse",
-    "desc": "Recursively search directories",
-    "type": "Boolean"
-  },
   "l": {
     "long": "jshint",
     "desc": "Specify a jshintrc file for JSHint linting",

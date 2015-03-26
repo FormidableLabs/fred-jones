@@ -79,12 +79,11 @@ module.exports = function(grunt) {
         cmd : './bin/plato',
         args : [
           '-q',
-          '-r',
           '-l.jshintrc',
           '-xvendor|bundles',
           '-dreports',
           '-tPlato report',
-          'lib/'
+          'lib/**'
         ]
       },
       function(err, result, code){

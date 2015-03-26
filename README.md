@@ -31,8 +31,6 @@ Usage : plato [options] -d <output_dir> <input files>
       File exclusion regex
   -d, --dir : String *required*
       The output directory
-  -r, --recurse
-      Recursively search directories
   -l, --jshint : String
       Specify a jshintrc file for JSHint linting
   -t, --title : String
@@ -44,13 +42,13 @@ Usage : plato [options] -d <output_dir> <input files>
 __Example__
 
 ```shell
-plato -r -d report src
+plato -d report src
 ```
 
 __Extended example__
 
 ```
-plato -r -d report -l .jshintrc -t "My Awesome App" -x .json routes/*.js
+plato -d report -l .jshintrc -t "My Awesome App" -x .json routes/*.js
 ```
 
 ### From scripts
@@ -123,4 +121,3 @@ Licensed under the MIT license.
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/es-analysis/plato/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
