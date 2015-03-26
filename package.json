@@ -17,6 +17,7 @@
     "test": "gulp test"
   },
   "devDependencies": {
+    "del": "^1.1.1",
     "gulp": "^3.8.11",
     "gulp-jshint": "^1.9.4",
     "gulp-nodeunit": "0.0.5",
