@@ -33,13 +33,14 @@
     "babel": "^4.7.16",
     "bluebird": "^2.9.15",
     "bunyan": "^1.3.4",
+    "commander": "^2.7.1",
     "d3": "^3.5.5",
     "escomplex-js": "^1.2.0",
     "fs-extra": "^0.16.5",
     "glob": "^5.0.3",
     "jshint": "^2.6.3",
     "lodash": "^3.3.1",
-    "posix-getopt": "^1.1.0",
-    "react": "^0.12.0"
+    "react": "^0.12.0",
+    "strip-json-comments": "^1.0.2"
   }
 }

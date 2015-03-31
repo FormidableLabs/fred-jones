@@ -36,7 +36,7 @@ exports.plato = {
       'test/fixtures/empty.js'
     ];
 
-    plato.inspect(files, null, {}, function(reports) {
+    plato.inspect(files, {}, function(reports) {
       test.equal(reports.length, 2, 'Should not attempt to report on empty files');
       test.done();
     });
@@ -46,7 +46,7 @@ exports.plato = {
 
     var files = './test/fixtures/*.js';
 
-    plato.inspect(files, null, {}, function(reports) {
+    plato.inspect(files, {}, function(reports) {
       test.equal(reports.length, 5, 'Should properly test against the array produced by the glob');
       test.done();
     });
@@ -59,7 +59,7 @@ exports.plato = {
       'test/fixtures/b.js'
     ];
 
-    plato.inspect(files, null, {}, function(reports) {
+    plato.inspect(files, {}, function(reports) {
       reports.forEach(function(report) {
         test.ok(report.complexity, 'Should contain a complexity report');
         test.ok(report.jshint, 'Should contain a jshint report');
@@ -76,7 +76,7 @@ exports.plato = {
 
     test.expect((files.length * 3) + 1);
 
-    plato.inspect(files, null, {}, function(reports) {
+    plato.inspect(files, {}, function(reports) {
       var overview = plato.getOverviewReport(reports);
       test.ok(overview.summary.total.jshint >= 0, 'Should contain total jshint issues');
       test.ok(overview.summary.total.sloc > 0, 'Should contain total sloc');
@@ -97,7 +97,7 @@ exports.plato = {
       'test/fixtures/shebang.js'
     ];
 
-    plato.inspect(files, null, {}, function(reports) {
+    plato.inspect(files, {}, function(reports) {
       test.equal(reports.length, 3, 'Should report on files starting with a shebang');
       test.done();
     });
@@ -109,7 +109,7 @@ exports.plato = {
       'test/fixtures/multipleEmptyLines.js'
     ];
 
-    plato.inspect(files, null, {noempty : true}, function(reports) {
+    plato.inspect(files, {noempty : true}, function(reports) {
       var overview = plato.getOverviewReport(reports);
       test.ok(overview.summary.total.sloc === 10, 'Should contain total sloc without empty lines counted');
       test.done();
@@ -125,7 +125,7 @@ exports.plato = {
 
     test.expect(1);
 
-    plato.inspect(files, null, {}, function(reports) {
+    plato.inspect(files, {}, function(reports) {
       var overview = plato.getOverviewReport(reports);
       test.ok(overview.summary.total.jshint === 4, 'Should contain total jshint issues');
       test.done();
