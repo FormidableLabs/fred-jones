@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react');
-var Treemap = require('./treemap.jsx');
+var QualityHeatmap = require('./quality-heatmap.jsx');
 var FileReport = require('./file-report.jsx');
 var util = require('../../util.js');
 
@@ -24,7 +24,7 @@ var Report = React.createClass({
 
         // Report Tiles
         <FileReport height='250' width='250' report={getReport()}/>
-        <Treemap height='250' width='250' x='250' report={getReport()}/>
+        <QualityHeatmap height='250' width='250' x='250' report={getReport()}/>
       </svg>
     );
   }

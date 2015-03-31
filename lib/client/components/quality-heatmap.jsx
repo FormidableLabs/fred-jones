@@ -23,7 +23,7 @@ var generateTreemapData = function(report) {
   });
 }
 
-var Treemap = React.createClass({
+var QualityHeatmap = React.createClass({
   getDefaultProps: function() {
     return {
       width: 600,
@@ -50,4 +50,4 @@ var Treemap = React.createClass({
   }
 });
 
-module.exports = Treemap;
+module.exports = QualityHeatmap;
