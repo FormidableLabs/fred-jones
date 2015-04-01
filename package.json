@@ -14,7 +14,7 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
-    "test": "gulp test"
+    "test": "grunt test"
   },
   "devDependencies": {
     "del": "^1.1.1",
