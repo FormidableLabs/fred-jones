@@ -84,20 +84,5 @@ exports.util = {
     path.sep = sep;
 
     test.done();
-  },
-  'strip comments': function(test) {
-    test.expect(1);
-
-    var source = fs.readFileSync('test/fixtures/.jshintrc').toString();
-    test.doesNotThrow(function(){JSON.parse(util.stripComments(source));}, 'Comments should be stripped and JSON parsable');
-
-    test.done();
-  },
-  'escape HTML': function(test) {
-      test.expect(1);
-
-      test.equal(util.escapeHTML('<div>"test&\'</div>'), '&lt;div&gt;&quot;test&amp;&#039;&lt;/div&gt;', 'should convert HTML tags into HTML special characters');
-
-      test.done();
   }
 };
