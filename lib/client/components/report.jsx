@@ -5,8 +5,7 @@ var QualityHeatmap = require('./quality-heatmap.jsx');
 var FileReport = require('./file-report.jsx');
 var util = require('../../util.js');
 
-var getReport = function(outputDir) {
-  // TODO: Figure out how to get outpuDir here
+var getReportData = function(outputDir) {
   outputDir = outputDir || 'reports'
   return util.readJSON(outputDir + '/report.json', {}) || {};
 }
@@ -23,16 +22,19 @@ var Report = React.createClass({
         <rect width='100%' height='100%' style={style} />
 
         // Report Tiles
-        <FileReport height='250' width='250' report={getReport()}/>
-        <QualityHeatmap height='250' width='250' x='250' report={getReport()}/>
+        <FileReport height='250' width='250' report={this.props.data}/>
+        <QualityHeatmap height='250' width='250' x='250' report={this.props.data}/>
       </svg>
     );
   }
 });
 
-module.exports = function(data) {
+module.exports = function(options) {
+  options = options || {};
+  var data = getReportData(options.outputDir);
+
   // React doesn't support multiple outer tags or the xmlns attribute
   var svgPreamble = '<?xml version="1.0"?>'
-  var svgBody = React.renderToStaticMarkup(<Report height='250' width='725'/>)
+  var svgBody = React.renderToStaticMarkup(<Report height='250' width='725' data={data}/>)
   return svgPreamble + '<svg xmlns="http://www.w3.org/2000/svg"' + svgBody.slice(4);
 };
