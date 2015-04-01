@@ -23,15 +23,15 @@ var Title = React.createClass({
 
 var Tile = React.createClass({
   render: function() {
+    var title = this.props.title ?
+      <Title title={this.props.title} width={this.props.width} /> : null;
+
     return (
       <svg width={this.props.width}
            height={this.props.height}
            x={this.props.x || 0}
            y={this.props.y || 0} >
-
-          if (this.props.title) {
-            <Title title={this.props.title} width={this.props.width} />
-          }
+          {title}
           <g>
             {this.props.children}
           </g>

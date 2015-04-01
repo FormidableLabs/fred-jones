@@ -23,7 +23,7 @@ var Report = React.createClass({
 
         // Report Tiles
         <FileReport height='250' width='250' report={this.props.data}/>
-        <QualityHeatmap height='250' width='250' x='250' report={this.props.data}/>
+        <QualityHeatmap height='250' width='450' x='250' report={this.props.data}/>
       </svg>
     );
   }
