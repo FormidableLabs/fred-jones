@@ -1,6 +1,6 @@
 <h1 align="center">Fred Jones</h1>
 <h4 align="center">
-  Fred Jones will help you visualize project health
+  helping you visualize project health
 </h4>
 
 ![Fred Jones](https://upload.wikimedia.org/wikipedia/en/4/47/Fred_Jones.png)
