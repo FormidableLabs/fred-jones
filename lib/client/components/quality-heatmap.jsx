@@ -55,7 +55,7 @@ var Cell = React.createClass({
           width={this.props.dx}
           height={this.props.dy}
           style={{
-            "fill": this.props.hasChildren ? color(this.props.name) : "none",
+            "fill": this.props.hasChildren ? "none" : color(this.props.name),
             "stroke": "white",
             "strokeWidth": "1.5px"
           }}/>
