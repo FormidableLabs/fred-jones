@@ -27,18 +27,18 @@
     "require-dir": "^0.3.0"
   },
   "dependencies": {
-    "babel": "^4.7.16",
+    "babel": "^5.0.12",
     "bluebird": "^2.9.15",
     "bunyan": "^1.3.4",
     "commander": "^2.7.1",
     "d3": "^3.5.5",
     "escomplex-js": "^1.2.0",
-    "fs-extra": "^0.16.5",
+    "fs-extra": "^0.18.0",
     "glob": "^5.0.3",
     "jshint": "^2.6.3",
     "jsinspect": "^0.5.0",
     "lodash": "^3.3.1",
-    "react": "^0.12.0",
+    "react": "^0.13.1",
     "strip-json-comments": "^1.0.2"
   }
 }
