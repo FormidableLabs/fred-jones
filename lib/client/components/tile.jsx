@@ -27,7 +27,7 @@ var Tile = React.createClass({
       <Title title={this.props.title} width={this.props.width} /> : null;
 
     return (
-      <svg width={this.props.width}
+      <g width={this.props.width}
            height={this.props.height}
            x={this.props.x || 0}
            y={this.props.y || 0} >
@@ -35,7 +35,7 @@ var Tile = React.createClass({
           <g>
             {this.props.children}
           </g>
-      </svg>
+      </g>
     );
   }
 });
