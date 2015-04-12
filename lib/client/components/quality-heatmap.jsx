@@ -3,6 +3,7 @@
 var React = require('react');
 var d3 = require('d3');
 var _ = require('lodash');
+var colorbrewer = require('colorbrewer');
 
 var setDeepProperty = function(obj, path, value) {
   var schema = obj;  // a moving reference to internal objects within obj
@@ -39,7 +40,8 @@ var formatData = function(data) {
   return tree;
 };
 
-var color = d3.scale.category20c();
+var color = d3.scale.ordinal()
+    .range(colorbrewer.RdYlGn[11]);
 
 var Cell = React.createClass({
   getInitialState: function () {

@@ -30,6 +30,7 @@
     "babel": "^5.0.12",
     "bluebird": "^2.9.15",
     "bunyan": "^1.3.4",
+    "colorbrewer": "0.0.2",
     "commander": "^2.7.1",
     "d3": "^3.5.5",
     "escomplex-js": "^1.2.0",
