@@ -5,7 +5,7 @@ var d3 = require('d3');
 var _ = require('lodash');
 var colorbrewer = require('colorbrewer');
 
-var setDeepProperty = function(obj, path, value) {
+var setDeepProperty = function(obj, path, cellValues) {
   var schema = obj;  // a moving reference to internal objects within obj
   var length = path.length;
 
@@ -18,7 +18,9 @@ var setDeepProperty = function(obj, path, value) {
     schema = _.findWhere(schema.children, {name: pathSegment});
   })
 
-  schema.size = value;
+  _.each(cellValues, function(value, key) {
+    schema[key] = value;
+  });
 }
 
 var getScore = function(file) {
@@ -35,7 +37,10 @@ var formatData = function(data) {
     var path = fileReport.info.file
       // TODO: use path.resolve to remove the ./ properly
       .split('/').slice(1);
-    setDeepProperty(tree, path, getScore(fileReport));
+    setDeepProperty(tree, path, {
+      size: fileReport.complexity.aggregate.sloc.logical,
+      score: getScore(fileReport)
+    });
   })
   return tree;
 };
@@ -52,12 +57,12 @@ var Cell = React.createClass({
       <g transform={"translate(" + this.props.x + "," + this.props.y + ")"}>
         //TODO: Tooltip with per-file info on hover
         //TODO: Link to the real file on github
-        <title>{this.props.name}</title>
+        <title>{this.props.name + ": " + this.props.score}</title>
         <rect
           width={this.props.dx}
           height={this.props.dy}
           style={{
-            "fill": this.props.hasChildren ? "none" : color(this.props.name),
+            "fill": this.props.hasChildren ? "none" : color(this.props.score),
             "stroke": "white",
             "strokeWidth": "1.5px"
           }}/>
@@ -85,6 +90,7 @@ var Treemap = React.createClass({
           pathSegment={index}
           hasChildren={cell.children ? true : false}
           name={cell.name}
+          score={cell.score}
           x={cell.x}
           y={cell.y}
           dx={cell.dx}
