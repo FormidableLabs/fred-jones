@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var Tile = require('./tile.jsx');
 var d3 = require('d3');
 var _ = require('lodash');
 var colorbrewer = require('colorbrewer');
@@ -100,12 +101,19 @@ var Treemap = React.createClass({
     },
     render: function() {
         return (
-          <g
-            style={{"border": "2px solid black", "margin": "20px"}}
-            width={this.state.svgWidth}
-            height={this.state.svgHeight}>
-            {this.drawCells()}
-          </g>
+          <Tile title='Quality Heatmap'
+                width={this.props.width}
+                height={this.props.height}
+                x={this.props.x}
+                y={this.props.y}>
+            // TODO: Why is this ignoring x
+            <g
+              style={{"border": "2px solid black", "margin": "20px"}}
+              width={this.state.svgWidth}
+              height={this.state.svgHeight}>
+              {this.drawCells()}
+            </g>
+          </Tile>
         )
     }
 });
