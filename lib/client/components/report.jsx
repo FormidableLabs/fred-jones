@@ -35,6 +35,10 @@ module.exports = function(options) {
 
   // React doesn't support multiple outer tags or the xmlns attribute
   var svgPreamble = '<?xml version="1.0"?>'
+  var svgNamespaces = [
+    'xmlns="http://www.w3.org/2000/svg"',
+    'xmlns:xlink="http://www.w3.org/1999/xlink"'
+  ].join('\n');
   var svgBody = React.renderToStaticMarkup(<Report height='250' width='725' data={data}/>)
-  return svgPreamble + '<svg xmlns="http://www.w3.org/2000/svg"' + svgBody.slice(4);
+  return svgPreamble + '<svg ' + svgNamespaces + svgBody.slice(4);
 };
