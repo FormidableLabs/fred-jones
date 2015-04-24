@@ -1,7 +1,6 @@
 'use strict';
 
 var React = require('react');
-var Tile = require('./tile.jsx');
 var d3 = require('d3');
 var _ = require('lodash');
 var colorbrewer = require('colorbrewer');
@@ -81,47 +80,56 @@ var Cell = React.createClass({
 });
 
 var Treemap = React.createClass({
-    getInitialState: function() {
-      var svgWidth = 475;
-      var svgHeight = 250;
-      var treemap = d3.layout.treemap().size([svgWidth, svgHeight]).sticky(true).value(function(d) { return d.size; });
+  getDefaultProps: function() {
+    return {
+      width: 600,
+      height: 300,
+      x: 0,
+      y: 0,
+      report: { reports: [] }
+    };
+  },
+  getInitialState: function() {
+    // TODO: Remove this crap
+    var svgWidth = 475;
+    var svgHeight = 250;
 
-      var cells = treemap.nodes(formatData(this.props.report));
-      return {
-        svgWidth: svgWidth,
-        svgHeight: svgHeight,
-        cells: cells
-      }
-    },
-    drawCells: function () {
-      var cells = this.state.cells.map(function (cell, index) {
-        return (<Cell
-          pathSegment={index}
-          hasChildren={cell.children ? true : false}
-          name={cell.name}
-          score={cell.score}
-          x={cell.x}
-          y={cell.y}
-          dx={cell.dx}
-          dy={cell.dy}/>
-        ) })
-      return cells;
-    },
-    render: function() {
-        // TODO: scale by to this.props.width this.props.height
-        var x = this.props.x || 0;
-        var y = this.props.y || 0;
+    var cells = d3.layout.treemap()
+      .size([svgWidth, svgHeight])
+      .sticky(true)
+      .value(function(d) {
+        return d.size;
+      })
+      .nodes(formatData(this.props.report));
 
-        return (
-          <g
-            transform={"translate(" + x + ", " + y + ")"}
-            style={{"border": "2px solid black", "margin": "20px"}}
-            width={this.state.svgWidth}
-            height={this.state.svgHeight}>
-            {this.drawCells()}
-          </g>
-        )
-    }
+    return { cells: cells };
+  },
+  drawCells: function () {
+    var cells = this.state.cells.map(function (cell, index) {
+      return (<Cell pathSegment={index}
+                    hasChildren={cell.children ? true : false}
+                    name={cell.name}
+                    score={cell.score}
+                    x={cell.x}
+                    y={cell.y}
+                    dx={cell.dx}
+                    dy={cell.dy}/>
+      )
+    });
+    return cells;
+  },
+  render: function() {
+    // TODO: scale by to this.props.width this.props.height
+    var x = this.props.x || 0;
+    var y = this.props.y || 0;
+
+    return (
+      <g transform={"translate(" + x + ", " + y + ")"}
+         style={{"border": "2px solid black", "margin": "20px"}}>
+        {this.drawCells()}
+      </g>
+    )
+  }
 });
 
 module.exports = Treemap;
