@@ -53,12 +53,9 @@ var Cell = React.createClass({
     return {}
   },
   render: function () {
-    var fill = this.props.hasChildren ? "none" : color(this.props.score)
-
-    var createMarkup = function (dx, dy, fill) {
-      //TODO: Link to the real file on github
+    var createMarkup = function (dx, dy, fill, link) {
       var rect = [
-        '<a xlink:href="http://www.google.com">',
+        '<a xlink:href="' + link + '">',
         '  <rect',
         '    width="' + dx + '"',
         '    height="' + dy + '"',
@@ -73,7 +70,7 @@ var Cell = React.createClass({
     return (
       <g transform={"translate(" + this.props.x + "," + this.props.y + ")"}>
         <title>{this.props.name + ": " + this.props.score}</title>
-        <g dangerouslySetInnerHTML={createMarkup(this.props.dx, this.props.dy, fill)} />
+        <g dangerouslySetInnerHTML={createMarkup(this.props.dx, this.props.dy, this.props.fillColor, this.props.link)} />
       </g>
     )
   }
@@ -102,14 +99,17 @@ var Treemap = React.createClass({
   },
   drawCells: function () {
     var cells = this.state.cells.map(function (cell, index) {
-      return (<Cell pathSegment={index}
-                    hasChildren={cell.children ? true : false}
+      //TODO: get these from props
+      var projectURL = 'https://gecgithub01.walmart.com/GlobalProducts/atlas';
+      var projectBranch = 'master/';
+      var filePath = ".editorconfig";
+      var link = projectURL + '/blob/' + projectBranch + filePath;
+
+      return (<Cell link={link}
+                    fillColor={cell.children ? "none" : color(cell.score)}
                     name={cell.name}
                     score={cell.score}
-                    x={cell.x}
-                    y={cell.y}
-                    dx={cell.dx}
-                    dy={cell.dy}/>
+                    x={cell.x} y={cell.y} dx={cell.dx} dy={cell.dy}/>
       )
     });
     return cells;
