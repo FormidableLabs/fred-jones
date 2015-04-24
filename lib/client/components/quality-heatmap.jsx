@@ -103,7 +103,6 @@ var Treemap = React.createClass({
       //TODO: get these from props
       var projectURL = 'https://gecgithub01.walmart.com/GlobalProducts/atlas';
       var projectBranch = 'master/';
-      var filePath = ".editorconfig";
       var link = projectURL + '/blob/' + projectBranch + cell.path;
 
       return (<Cell link={link}
