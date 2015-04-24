@@ -108,20 +108,21 @@ var Treemap = React.createClass({
       return cells;
     },
     render: function() {
+        // TODO: scale by to these pixels
+        // width={this.props.width}
+        // height={this.props.height}
+
+        var x = this.props.x || 0;
+        var y = this.props.y || 0;
+
         return (
-          <Tile title='Quality Heatmap'
-                width={this.props.width}
-                height={this.props.height}
-                x={this.props.x}
-                y={this.props.y}>
-            // TODO: Why is this ignoring x
-            <g
-              style={{"border": "2px solid black", "margin": "20px"}}
-              width={this.state.svgWidth}
-              height={this.state.svgHeight}>
-              {this.drawCells()}
-            </g>
-          </Tile>
+          <g
+            transform={"translate(" + x + ", " + y + ")"}
+            style={{"border": "2px solid black", "margin": "20px"}}
+            width={this.state.svgWidth}
+            height={this.state.svgHeight}>
+            {this.drawCells()}
+          </g>
         )
     }
 });
