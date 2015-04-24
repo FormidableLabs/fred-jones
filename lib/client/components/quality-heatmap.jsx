@@ -108,10 +108,7 @@ var Treemap = React.createClass({
       return cells;
     },
     render: function() {
-        // TODO: scale by to these pixels
-        // width={this.props.width}
-        // height={this.props.height}
-
+        // TODO: scale by to this.props.width this.props.height
         var x = this.props.x || 0;
         var y = this.props.y || 0;
 
