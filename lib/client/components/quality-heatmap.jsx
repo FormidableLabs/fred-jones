@@ -46,8 +46,9 @@ var formatData = function(data) {
   return tree;
 };
 
-var color = d3.scale.ordinal()
-    .range(colorbrewer.RdYlGn[11]);
+var color = d3.scale.quantile()
+  .domain([0, 10, 100])
+  .range(colorbrewer.RdYlGn[11]);
 
 var Cell = React.createClass({
   getInitialState: function () {
