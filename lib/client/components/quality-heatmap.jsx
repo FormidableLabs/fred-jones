@@ -82,20 +82,16 @@ var Cell = React.createClass({
 var Treemap = React.createClass({
   getDefaultProps: function() {
     return {
-      width: 600,
-      height: 300,
+      width: 475,
+      height: 250,
       x: 0,
       y: 0,
       report: { reports: [] }
     };
   },
   getInitialState: function() {
-    // TODO: Remove this crap
-    var svgWidth = 475;
-    var svgHeight = 250;
-
     var cells = d3.layout.treemap()
-      .size([svgWidth, svgHeight])
+      .size([this.props.width, this.props.height])
       .sticky(true)
       .value(function(d) {
         return d.size;
@@ -128,7 +124,7 @@ var Treemap = React.createClass({
          style={{"border": "2px solid black", "margin": "20px"}}>
         {this.drawCells()}
       </g>
-    )
+    );
   }
 });
 
