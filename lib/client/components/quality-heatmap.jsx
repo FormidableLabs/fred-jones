@@ -39,7 +39,8 @@ var formatData = function(data) {
       .split('/').slice(1);
     setDeepProperty(tree, path, {
       size: fileReport.complexity.aggregate.sloc.logical,
-      score: getScore(fileReport)
+      score: getScore(fileReport),
+      path: path.join('/')
     });
   })
   return tree;
@@ -103,7 +104,7 @@ var Treemap = React.createClass({
       var projectURL = 'https://gecgithub01.walmart.com/GlobalProducts/atlas';
       var projectBranch = 'master/';
       var filePath = ".editorconfig";
-      var link = projectURL + '/blob/' + projectBranch + filePath;
+      var link = projectURL + '/blob/' + projectBranch + cell.path;
 
       return (<Cell link={link}
                     fillColor={cell.children ? "none" : color(cell.score)}
