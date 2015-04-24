@@ -54,19 +54,27 @@ var Cell = React.createClass({
     return {}
   },
   render: function () {
+    var fill = this.props.hasChildren ? "none" : color(this.props.score)
+
+    var createMarkup = function (dx, dy, fill) {
+      //TODO: Link to the real file on github
+      var rect = [
+        '<a xlink:href="http://www.google.com">',
+        '  <rect',
+        '    width="' + dx + '"',
+        '    height="' + dy + '"',
+        '    style="fill:' + fill + '; stroke:white; strokeWidth:1.5px;"',
+        '  />',
+        '</a>'
+      ].join('\n');
+
+      return {__html: rect };
+    };
+
     return (
       <g transform={"translate(" + this.props.x + "," + this.props.y + ")"}>
-        //TODO: Tooltip with per-file info on hover
-        //TODO: Link to the real file on github
         <title>{this.props.name + ": " + this.props.score}</title>
-        <rect
-          width={this.props.dx}
-          height={this.props.dy}
-          style={{
-            "fill": this.props.hasChildren ? "none" : color(this.props.score),
-            "stroke": "white",
-            "strokeWidth": "1.5px"
-          }}/>
+        <g dangerouslySetInnerHTML={createMarkup(this.props.dx, this.props.dy, fill)} />
       </g>
     )
   }
