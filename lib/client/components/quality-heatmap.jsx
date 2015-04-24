@@ -84,7 +84,7 @@ var Treemap = React.createClass({
       height: 250,
       x: 0,
       y: 0,
-      report: { reports: [] }
+      data: { report: { reports: [] }}
     };
   },
   getInitialState: function() {
@@ -94,24 +94,19 @@ var Treemap = React.createClass({
       .value(function(d) {
         return d.size;
       })
-      .nodes(formatData(this.props.report));
+      .nodes(formatData(this.props.data.report));
 
     return { cells: cells };
   },
   drawCells: function () {
     var cells = this.state.cells.map(function (cell, index) {
-      //TODO: get these from props
-      var projectURL = 'https://gecgithub01.walmart.com/GlobalProducts/atlas';
-      var projectBranch = 'master/';
-      var link = projectURL + '/blob/' + projectBranch + cell.path;
-
-      return (<Cell link={link}
+      return (<Cell link={this.props.data.projectURL + '/blob/' + this.props.data.branch + '/' + cell.path}
                     fillColor={cell.children ? "none" : color(cell.score)}
                     name={cell.name}
                     score={cell.score}
                     x={cell.x} y={cell.y} dx={cell.dx} dy={cell.dy}/>
       )
-    });
+    }, this);
     return cells;
   },
   render: function() {

@@ -12,18 +12,14 @@ var getReportData = function(outputDir) {
 
 var Report = React.createClass({
   render: function() {
-    var style = {
-      'fill': '#4C5F6D'
-    };
-
     return (
       <svg width={this.props.width} height={this.props.height}>
         // Background
-        <rect width='100%' height='100%' style={style} />
+        <rect width='100%' height='100%' style={{'fill': '#4C5F6D'}} />
 
         // Report Tiles
-        <FileReport height='250' width='250' report={this.props.data}/>
-        <QualityHeatmap height='250' width='475' x='250' report={this.props.data}/>
+        <FileReport height='250' width='250' report={this.props.data.report}/>
+        <QualityHeatmap height='250' width='475' x='250' data={this.props.data}/>
       </svg>
     );
   }
@@ -31,7 +27,11 @@ var Report = React.createClass({
 
 module.exports = function(options) {
   options = options || {};
-  var data = getReportData(options.outputDir);
+  var data = {
+    report: getReportData(options.outputDir),
+    projectURL: 'https://gecgithub01.walmart.com/GlobalProducts/atlas',
+    branch: 'master',
+  };
 
   // React doesn't support multiple outer tags or the xmlns attribute
   var svgPreamble = '<?xml version="1.0"?>'
