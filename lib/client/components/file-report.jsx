@@ -7,17 +7,13 @@ var FileReport = React.createClass({
   getDefaultProps: function() {
     var report = {
       summary: {
-        average: {
-          sloc: "n/a",
-          jshint: "n/a",
-          maintainability: "n/a"
-        }
+        average: { sloc: "n/a", jshint: "n/a", maintainability: "n/a" }
       }
     }
 
     return {
-      width: 600,
-      height: 300,
+      width: 250,
+      height: 250,
       x: 0,
       y: 0,
       report: report
